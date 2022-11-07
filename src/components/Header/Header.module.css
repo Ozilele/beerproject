@@ -1,0 +1,19 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f5f3;
+  height: 6rem;
+  width: 100%;
+}
+
+.logoArea {
+  margin-left: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.logoArea img {
+  height: 2.5rem;
+}

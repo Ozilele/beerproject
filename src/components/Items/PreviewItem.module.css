@@ -1,0 +1,46 @@
+
+.previewLink {
+  padding: 1.2rem 2.35rem;
+  text-decoration: none;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #fff;
+}
+
+.previewLink:hover {
+  background-color: #f9f5f3;
+  transform: translateY(-2px);
+}
+
+.previewFig {
+  height: 4rem;
+  width: 30px;
+  margin-right: 1.25rem;
+  overflow: hidden;
+}
+
+.previewFig img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.previewData h4 {
+  margin-bottom: 0.45rem;
+}
+
+.previewIcons {
+  display: flex;
+  align-items: center;
+}
+
+.previewIcons img {
+  height: 18px;
+}
+
+.previewIcons span {
+  margin-right: 14px;
+  font-weight: 700;
+  color: #905E96;
+}

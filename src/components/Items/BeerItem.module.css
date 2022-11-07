@@ -1,0 +1,92 @@
+
+.beerLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.beerItem {
+  margin-bottom: 1.5rem;
+}
+
+.beerCart {
+  display: flex;
+  height: 140px;
+  border: 1px solid #251B37;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.beerImg {
+  height: 120px;
+  width: 100px;
+  margin-right: 6px;
+}
+
+.beerImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.beerContent {
+  font-size: 1.2rem;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.beerName {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 6px;
+  font-weight: 700;
+  color: grey;
+}
+
+.beerBtns {
+  margin-left: auto;
+  height: 100%;
+  /* width: 30%; */
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.addToFavBtn, .viewMoreBtn {
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+}
+
+.viewMoreBtn {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addToFavBtn {
+  background-color: #FF5576;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in 0.3s;
+}
+
+.addToFavBtn:hover {
+  background-color:#905E96;
+  color: whitesmoke;
+}
+
+.addToFavBtn img {
+  width: 16px;
+}
+
+.beerBtns button span {
+  margin-right: 3px;
+}
+
+

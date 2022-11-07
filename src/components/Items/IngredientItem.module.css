@@ -1,0 +1,11 @@
+
+.ingredient {
+  display: flex;
+  margin-left: 1.5rem;
+  font-size: 1.05rem;
+  color: #404258;
+}
+
+.ingredientName {
+  margin-right: 0.4rem;
+}

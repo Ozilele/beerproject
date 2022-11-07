@@ -1,0 +1,38 @@
+
+.searchBar {
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+
+.searchField {
+  width: 20rem;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.searchField:focus {
+  outline: none;
+}
+
+.searchBtn {
+  cursor: pointer;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  color: #3C4048;
+  transition: all .2s;
+}
+
+.searchBtn:hover {
+  transform: scale(1.05);
+}
+
+.searchBtn span {
+  margin-left: 4px;
+}
