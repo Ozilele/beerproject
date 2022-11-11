@@ -25,7 +25,7 @@ const BeerItem = (props) => {
       id: props.id,
     }
     const data = JSON.parse(localStorage.getItem("storedBeers") || "[]");
-    const existing = [...data].map((item) => {
+    const existing = data.find((item) => {
       if(item.id == objToBeAdded.id) {
         return item;
       }
