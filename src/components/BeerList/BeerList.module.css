@@ -22,11 +22,21 @@
   border: none;
   border-radius: 12px;
   font-size: 1rem;
-
 }
-
 
 .forwardBtn {
   margin-left: auto;
   float: right;
+}
+
+@media (max-width: 900px) {
+  .beerList {
+    width: 45rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .beerList {
+    width: 100%;
+  }
 }

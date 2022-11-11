@@ -14,6 +14,49 @@
   align-items: center;
 }
 
+.title {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.7rem;
+}
+
 .logoArea img {
-  height: 2.5rem;
+  height: 2.3rem;
+}
+
+@media (max-width: 1000px) {
+  .header {
+    justify-content: flex-end;
+  }
+  .logoArea {
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .logoArea {
+    margin-left: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.45rem;
+  }
+
+  .logoArea img {
+    height: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    height: 4.5rem;
+  }
+  .logoArea {
+    margin-left: 4px;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+  .logoArea img {
+    height: 24px;
+  }
 }

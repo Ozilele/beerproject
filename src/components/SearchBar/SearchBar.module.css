@@ -8,13 +8,16 @@
 }
 
 .searchField {
-  width: 20rem;
+  opacity: 0;
+  visibility: hidden;
   border: none;
+  overflow: hidden;
   font-size: 1.2rem;
 }
 
 .searchField:focus {
   outline: none;
+  opacity: 1;
 }
 
 .searchBtn {
@@ -35,4 +38,56 @@
 
 .searchBtn span {
   margin-left: 4px;
+}
+
+/* @media (max-width: 1000px) {
+  .searchBar {
+    background: none;
+  }
+  .searchBtn {
+    background: transparent;
+  }
+  .searchBar.open {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+
+  }
+  .searchBar.open input {
+    visibility: visible;
+    opacity: 0.8;
+    border: none;
+    width: 10rem;
+  }
+}
+
+@media (min-width: 1001px) {
+  .searchField {
+    visibility: visible;
+    width: 20rem;
+    border: none;
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+} */
+
+@media (min-width: 1001px) {
+  .searchField {
+    opacity: 0.8;
+    visibility: visible;
+    width: 20rem;
+    transition-property: opacity, visibility;
+    transition-duration: 0.3s;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .searchBar {
+    background: transparent;
+  }
+  .searchBtn {
+    background: transparent;
+  }
 }

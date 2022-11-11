@@ -15,7 +15,7 @@ const PreviewItem = (props) => {
   }
 
   return (
-    <Link to={urlOfBeer} className={classes.previewLink} onClick={handleLinkClick}>
+    <Link to={urlOfBeer} className={classes.previewLink} onClick={handleLinkClick} id={props.id}>
       <li className={classes.preview}>
         <figure className={classes.previewFig}>
           <img src={props.img_src}></img>

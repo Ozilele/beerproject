@@ -34,7 +34,7 @@ const BeerList = (props) => {
             bitterness={beer.ibu}
             tagline={beer.tagline}
             id={beer.id}
-            key={beer.id}
+            key={Math.random() + ""}
             breweryConvention={beer.ebc}
           />);
       }): ''}

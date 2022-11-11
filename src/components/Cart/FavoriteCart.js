@@ -4,35 +4,33 @@ import bookmark from '../../img/bookmark.png';
 import BeerContext from '../../store/beer-context';
 import PreviewItem from '../Items/PreviewItem';
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem("storedBeers") || "[]");
+
 const FavoriteCart = () => {
 
   const beerCtx = useContext(BeerContext);
-  const [listOfFavBeers, setListOfFavBeers] = useState([]);
+  const [defaultVal, setDefault] = useState(true);
+  const [listOfFavBeers, setListOfFavBeers] = useState(cartFromLocalStorage);
 
-  useEffect(() => {
-    let storedItems = JSON.parse(localStorage.getItem("storedBeers"));
-    console.log(storedItems);
-    if(!storedItems || beerCtx.favoriteBeers.length > 0) {
-      setListOfFavBeers(beerCtx.favoriteBeers);
+  useEffect(() => {    
+    if(defaultVal) { // adding data from storage in first place
+      localStorage.setItem("storedBeers", JSON.stringify(cartFromLocalStorage));
+      setDefault(false);
     } else {
-      setListOfFavBeers(storedItems);
+      setListOfFavBeers(beerCtx.storedBeers);
     }
-  }, [beerCtx.favoriteBeers, beerCtx.storedBeers]);
-
-  const showFavoriteBeers = () => {
-
-  }
+  }, [beerCtx.storedBeers]);
 
   return (
     <ul className={classes.navList}>
       <li className={classes.navItem}>
-        <button className={classes.favoriteBtn} onClick={showFavoriteBeers}>
+        <button className={classes.favoriteBtn}>
           <img src={bookmark} className={classes.bookmarkLogo}></img>
           <span>Bookmarks</span>
         </button>
         <div className={classes.bookmarks}>
           <ul className={classes.bookmarksList}>
-            {listOfFavBeers?.length > 0 ? listOfFavBeers.map((favBeer) => {
+            {listOfFavBeers?.length > 0 ? listOfFavBeers.map((favBeer, index) => {
               return (
                 <PreviewItem
                   data={favBeer}
@@ -40,10 +38,10 @@ const FavoriteCart = () => {
                   name={favBeer.name}
                   img_src={favBeer.img_src}
                   description={favBeer.description}
-                  key={favBeer.name}
+                  key={favBeer.key}
                   abv={favBeer.abv}
                   ibu={favBeer.bitterness}
-                  ebc={favBeer.bc}
+                  ebc={favBeer.ebc}
                 />
               )
             }) : ''}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './SearchBar.module.css';
 import useInput from '../hooks/useInput';
 import useHttpReq from '../hooks/useHttpReq';
@@ -7,30 +7,31 @@ import searchIcon from '../../img/searchIcon.png';
 
 const SearchBar = () => {
 
-  const validateSearch = (value) => {
+  const [formClass, setFormClass] = useState(classes.searchBar);
+  const validateSearch = (value) => { 
     return value.trim() !== '';
   }
 
   const { value: searchValue, isValid: searchIsValid, hasError: searchHasError, onChange: searchValueChangeHandler, onBlur: searchValueBlurHandler } = useInput(validateSearch);
 
   const beerCtx = useContext(BeerContext);
-  
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log("Form submitting...");
-    console.log(searchValue);
+
+    if(!searchIsValid) {
+      setFormClass(classes.searchBar);
+    }
 
     beerCtx.updateBeerList(`https://api.punkapi.com/v2/beers?beer_name=${searchValue}&per_page=15`);
-
   }
 
   return (
-    <form className={classes.searchBar} onSubmit={handleSearch} >
+    <form className={formClass} onSubmit={handleSearch} >
       <input 
         type="text"
         id="search" 
-        className={classes.searchField} 
+        className={classes.searchField}
         placeholder="Search for your favorite beer..." 
         value={searchValue}
         onChange={searchValueChangeHandler} 

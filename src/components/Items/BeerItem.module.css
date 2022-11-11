@@ -89,4 +89,55 @@
   margin-right: 3px;
 }
 
+@media (max-width: 900px) {
+  .beerCart {
+    height: 120px;
+  }
 
+  .beerImg {
+    height: 100px;
+    width: 95px;
+  }
+
+  .beerContent {
+    font-size: 1.1rem;
+    width: 380px;
+  }
+
+  .addToFavBtn, .viewMoreBtn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .addToFavBtn img {
+    width: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .beerCart {
+    height: 110px;
+  }
+  .beerContent {
+    font-size: 1rem;
+    width: 320px;
+  }
+
+  .beerImg {
+    height: 90px;
+    width: 85px;
+  }
+}
+
+@media (max-width: 620px) {
+  .beerCart {
+    height: 105px;
+  }
+  .beerContent {
+    width: 260px;
+  }
+  .beerImg {
+    height: 85px;
+    width: 80px;
+  }
+}

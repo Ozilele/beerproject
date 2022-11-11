@@ -11,7 +11,6 @@ const defaultBeerState = {
 const beerReducer = (state, action) => {
 
   let updatedItems;
-  let storedItems;
 
   if(action.type === 'SET') {
     return {
@@ -22,14 +21,23 @@ const beerReducer = (state, action) => {
   }
 
   if(action.type === 'ADD') {
-    updatedItems = state.favoriteBeers.concat(action.item);
-    console.log(updatedItems);
-    storedItems = localStorage.setItem("storedBeers", JSON.stringify(updatedItems));
+
+    updatedItems = JSON.parse(localStorage.getItem("storedBeers") || "[]");
     return {
       favoriteBeers: updatedItems,
       currentViewedBeer: state.currentViewedBeer,
-      storedBeers: storedItems,
+      storedBeers: updatedItems,
     };
+  }
+
+  if(action.type === 'INIT_ADDING_FROM_STORAGE') {
+    updatedItems = state.favoriteBeers.concat(action.item);
+    console.log(updatedItems);
+    return {
+      favoriteBeers: updatedItems,
+      currentViewedBeer: state.currentViewedBeer,
+      storedBeers: state.storedBeers,
+    }
   }
 
   if(action.type === 'REMOVE') {
@@ -73,6 +81,10 @@ const BeerProvider = (props) => {
     dispatchAction({type: 'ADD', item: item});
   }
 
+  const addDataFromStorage = (item) => {
+    dispatchAction({type: 'INIT_ADDING_FROM_STORAGE', item: item});
+  }
+
   const removeBeerFromFavHandler = (id) => {
     dispatchAction({type: 'REMOVE', id: id});
   }
@@ -114,6 +126,7 @@ const BeerProvider = (props) => {
     setCurrViewedBeer: setCurrViewedBeer,
     updateBeerList: changeBeerList,
     addBeerToFav: addBeerToFavHandler,
+    addDataFromStorage: addDataFromStorage,
     removeBeerFromFav: removeBeerFromFavHandler,
   }
 

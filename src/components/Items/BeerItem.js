@@ -13,7 +13,8 @@ const BeerItem = (props) => {
   const urlOfBeer = `/beers/${props.id}`;
 
   const handleClick = () => {
-    beerCtx.addBeerToFav({
+    const objToBeAdded = {
+      key: Math.random() + "",
       data: props.wholeData,
       name: props.name,
       img_src: props.img_src,
@@ -22,12 +23,22 @@ const BeerItem = (props) => {
       bitterness: props.bitterness,
       ebc: props.breweryConvention,
       id: props.id,
+    }
+    const data = JSON.parse(localStorage.getItem("storedBeers") || "[]");
+    const existing = [...data].map((item) => {
+      if(item.id == objToBeAdded.id) {
+        return item;
+      }
     });
-    
+    if(existing) {
+      alert("Item is already in favorites");
+    } else {
+      localStorage.setItem("storedBeers", JSON.stringify([...data, objToBeAdded]));
+      beerCtx.addBeerToFav(objToBeAdded);
+    }
   };
 
-  const handleViewMoreOption = (event) => {
-    console.log(event);
+  const handleViewMoreOption = () => {
     beerCtx.setCurrViewedBeer(props.wholeData);
   };
 
@@ -53,7 +64,7 @@ const BeerItem = (props) => {
             </button>
             <Link to={urlOfBeer} className={classes.beerLink} onClick={handleViewMoreOption}>
               <button className={classes.viewMoreBtn}>
-                <span>View More...</span>
+                <span>View More</span>
                 <img src={viewMore} alt="view More"></img>
               </button>
             </Link>
