@@ -13,7 +13,7 @@ const FavoriteCart = () => {
   const [listOfFavBeers, setListOfFavBeers] = useState(cartFromLocalStorage);
 
   useEffect(() => {    
-    if(defaultVal) { // adding data from storage in first place
+    if(defaultVal) {
       localStorage.setItem("storedBeers", JSON.stringify(cartFromLocalStorage));
       setDefault(false);
     } else {

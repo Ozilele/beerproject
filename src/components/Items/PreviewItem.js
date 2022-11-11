@@ -32,6 +32,7 @@ const PreviewItem = (props) => {
             <span>{props.ebc}</span>
           </div>
         </div>
+        <div className={classes.previewItemBtn}></div>
       </li>
     </Link>
   )
