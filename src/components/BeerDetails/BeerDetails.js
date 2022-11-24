@@ -11,6 +11,7 @@ import calendar from '../../img/calendar.png';
 import ph from '../../img/ph.png';
 import tip from '../../img/tip.png';
 import fork from '../../img/fork.png';
+import backIcon from '../../img/backIcon.png';
 
 
 const BeerDetails = () => {
@@ -81,11 +82,14 @@ const BeerDetails = () => {
   return (
     <>
     <div className={classes.beerDetails}>
-    <div className={classes.backBtn}>
-      <Link to="/" onClick={handleComeback}>
-        <button>Back</button>
-      </Link>
-    </div>
+      <div className={classes.backBtn}>
+        <Link to="/" onClick={handleComeback}>
+          <button>
+            <img src={backIcon} alt="back"></img>  
+            <span>Back</span>
+          </button>
+        </Link>
+      </div>
       <div className={classes.beerContainer}>
         <div className={classes.beerImg}>
           <img src={currViewedBeer.image_url ? currViewedBeer.image_url : currViewedBeer.data.image_url} alt="beer_img_fullView"></img>

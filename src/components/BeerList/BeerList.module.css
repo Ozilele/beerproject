@@ -40,3 +40,13 @@
     width: 100%;
   }
 }
+
+@media (min-width: 1200px) {
+  .beerList {
+    position: absolute;
+    width: 70%;
+    right: 0;
+    top: 8rem;
+    /* margin: 0 0; */
+  }
+}

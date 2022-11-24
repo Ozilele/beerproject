@@ -12,7 +12,6 @@ const BeerContext = React.createContext({
   setCurrViewedBeer: (beer) => {},
   updateBeerList: (url) => {},
   addBeerToFav: (beer) => {},
-  addDataFromStorage: (item) => {},
   removeBeerFromFav: (id) => {},
 });
 

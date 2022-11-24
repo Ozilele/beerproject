@@ -1,16 +1,20 @@
 
 .previewLink {
-  padding: 1.2rem 2.35rem;
   text-decoration: none;
-  transition: all .3s;
+}
+
+.preview {
+  padding: 1.1rem 2rem;
   display: flex;
   align-items: center;
   border-right: 1px solid #fff;
+  transition: all .3s;
 }
 
-.previewLink:hover {
+.preview:hover {
   background-color: #f9f5f3;
   transform: translateY(-2px);
+  border-bottom: 1px solid #6B728E;
 }
 
 .previewFig {
@@ -26,8 +30,16 @@
   object-fit: contain;
 }
 
+.previewData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
 .previewData h4 {
-  margin-bottom: 0.45rem;
+  /* margin-top: 0.5rem; */
+  font-size: 1.1rem;
 }
 
 .previewIcons {
@@ -43,4 +55,28 @@
   margin-right: 14px;
   font-weight: 700;
   color: #905E96;
+}
+
+.previewItemBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: auto;
+  align-items: center;
+  background: none;
+}
+
+.previewItemBtns button:first-child {
+  margin-top: 10px;
+}
+
+.previewItemBtns button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: ease-in 0.3s;
+}
+
+.previewItemBtns button:hover {
+  transform: scale(1.05);
 }

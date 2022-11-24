@@ -13,6 +13,7 @@
   border: none;
   overflow: hidden;
   font-size: 1.2rem;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .searchField:focus {
@@ -28,8 +29,13 @@
   display: flex;
   align-items: center;
   font-size: 1.15rem;
+  background-color: #EAEAEA;
   color: #3C4048;
   transition: all .2s;
+  /* background-image: url("../../img/fork.png"); */
+  background-image: url('../../img/searchIcon.png');
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
 .searchBtn:hover {
@@ -40,38 +46,6 @@
   margin-left: 4px;
 }
 
-/* @media (max-width: 1000px) {
-  .searchBar {
-    background: none;
-  }
-  .searchBtn {
-    background: transparent;
-  }
-  .searchBar.open {
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-
-  }
-  .searchBar.open input {
-    visibility: visible;
-    opacity: 0.8;
-    border: none;
-    width: 10rem;
-  }
-}
-
-@media (min-width: 1001px) {
-  .searchField {
-    visibility: visible;
-    width: 20rem;
-    border: none;
-    font-size: 1.2rem;
-    opacity: 0.8;
-  }
-} */
 
 @media (min-width: 1001px) {
   .searchField {
@@ -86,8 +60,53 @@
 @media screen and (max-width: 1000px) {
   .searchBar {
     background: transparent;
+    margin-right: 12px;
   }
   .searchBtn {
-    background: transparent;
+    background-color: transparent;
   }
+  .searchBar.toggled {
+    background-color: #fff; 
+  }
+  .searchBar.toggled > .searchField {
+    opacity: 0.8;
+    visibility: visible;
+    width: 15rem;
+  }
+  .searchBar.toggled > .searchBtn {
+    background-color: #EAEAEA;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .searchBar.toggled > .searchBtn {
+    position: fixed;
+    left: 12px;
+    width: 40px; 
+    height: 40px;
+    background: transparent;
+    background-image: url('../../img/closeIcon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .searchBar.toggled {
+    position: fixed;
+    padding-left: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    height: 4.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .searchBar.toggled .searchField {
+    width: 100%;
+    font-size: 1.35rem;
+    padding-left: 60px;
+  }
+
 }

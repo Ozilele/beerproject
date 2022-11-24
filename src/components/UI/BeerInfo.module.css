@@ -38,3 +38,22 @@
   display: flex;
   margin-right: 0.5rem;
 }
+
+@media (max-width: 1000px) {
+  .beerInfo:first-child {
+    padding: 5.5rem 0 0 2.3rem;
+  }
+  .beerInfo {
+    padding:  0 0 0 2.3rem;
+    font-weight: 600;
+  }
+  .beerInfo img {
+    height: 1.25rem;
+  }
+  .beerInfo h3 {
+    font-size: 1.15rem;
+  }
+  .beerInfo span {
+    font-size: 1.1rem;
+  }
+}

@@ -5,6 +5,8 @@ import classes from './PreviewItem.module.css';
 import percent from '../../img/percent.png';
 import bitter from '../../img/bitter.png';
 import brewery from '../../img/brewery.png';
+import removeIcon from '../../img/minusIcon.png';
+import viewMore from '../../img/more.png';
 
 const PreviewItem = (props) => {
   const beerCtx = useContext(BeerContext);
@@ -14,8 +16,14 @@ const PreviewItem = (props) => {
     beerCtx.setCurrViewedBeer(props.data);
   }
 
+  const handleRemoveFromFav = () => {
+    const data = JSON.parse(localStorage.getItem("storedBeers"));
+    const updatedData = data.filter((beer) => beer.id !== props.id);
+    localStorage.setItem("storedBeers", JSON.stringify([...updatedData]));
+    beerCtx.removeBeerFromFav(props.id);
+  }
+
   return (
-    <Link to={urlOfBeer} className={classes.previewLink} onClick={handleLinkClick} id={props.id}>
       <li className={classes.preview}>
         <figure className={classes.previewFig}>
           <img src={props.img_src}></img>
@@ -32,9 +40,17 @@ const PreviewItem = (props) => {
             <span>{props.ebc}</span>
           </div>
         </div>
-        <div className={classes.previewItemBtn}></div>
+        <div className={classes.previewItemBtns}>
+          <button className={classes.removeBtn} onClick={handleRemoveFromFav}>
+            <img src={removeIcon} alt="remove"></img>
+          </button>
+          <button>
+            <Link to={urlOfBeer} className={classes.previewLink} onClick={handleLinkClick}>
+              <img src={viewMore} alt="viewMore"></img>
+            </Link>
+          </button>
+        </div>
       </li>
-    </Link>
   )
 }
 

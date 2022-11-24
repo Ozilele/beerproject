@@ -34,6 +34,9 @@ const FilterItem = (props) => {
     /* 
       else if 2 inputs are good, let user know that only one input should be specified
     */
+    if(firstInputIsValid && secondInputIsValid) {
+      alert("Only one input should be specified");
+    }
   }
 
   return (
@@ -44,7 +47,7 @@ const FilterItem = (props) => {
           <input 
             type="text"
             id="numSearch_1"
-            className="gaga"
+            className={classes.dropdownInput}
             placeholder="Greater than..."
             value={firstInputValue}
             onChange={firstInputValueChangeHandler}
@@ -57,7 +60,7 @@ const FilterItem = (props) => {
           <input 
             type="text"
             id="numSearch_2"
-            className="gaga"
+            className={classes.dropdownInput}
             placeholder="Less than..."
             value={secondInputValue}
             onChange={secondInputValueChangeHandler}
